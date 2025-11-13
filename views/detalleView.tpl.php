@@ -5,47 +5,52 @@
       <button onclick="window.location.href='?slug=panel'" class="btn-back">
         ← Volver
       </button>
-      
+
       <div class="detalle-content">
         <h2 id="detalle-apodo" class="detalle-title"></h2>
+        <div class="grafico-container">
+          <canvas id="myChart"></canvas>
+        </div>
+
         <div class="detalle-ubicacion">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-            <circle cx="12" cy="10" r="3"/>
-          </svg>
+          <img src="views/assets/img/place.svg">
           <span id="detalle-ubicacion-text"></span>
+          <div id="controls">
+            <div id="temp" class="ala">
+              <div id="temp-int" class="ala-int">00</div>
+              <div id="temp-col">
+                <div id="temp-unit">ºC</div>
+                <div id="temp-dec">.00</div>
+              </div>
+            </div>
+            <div id="hume" class="ala">
+              <div id="hume-int" class="ala-int">00</div>
+              <div id="hume-col">
+                <div id="hume-unit">%</div>
+                <div id="hume-dec">.00</div>
+              </div>
+            </div>
+            <div id="vien" class="ala">
+              <div id="vien-int" class="ala-int">00</div>
+              <div id="vien-col">
+                <div id="vien-unit">m/s</div>
+                <div id="vien-dec">.00</div>
+              </div>
+            </div>
+            <div id="ince" class="ala">
+              <div id="ince-int" class="ala-int">00</div>
+              <div id="ince-col">
+                <div id="ince-unit">MJ/m²</div>
+                <div id="ince-dec">.00</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <script>
-document.addEventListener("DOMContentLoaded", async () => {
-  // Tomamos el chipid de la URL (?chipid=XXXX)
-  const params=new URLSearchParams(window.location.search)
-  const chipid=params.get("chipid")
 
-  if(!chipid){
-    document.getElementById("detalle-apodo").textContent="Error"
-    document.getElementById("detalle-ubicacion-text").textContent="No se recibió chipid"
-    return
-  }
-
-  // Pedimos el JSON
-  const response=await fetch('datos.php')
-  const estaciones=await response.json()
-
-  // Buscamos la estación que coincida
-  const estacion=estaciones.find(e=>e.chipid===chipid)
-
-  if(estacion){
-    document.getElementById("detalle-apodo").textContent=estacion.apodo
-    document.getElementById("detalle-ubicacion-text").textContent=estacion.ubicacion
-  }else{
-    document.getElementById("detalle-apodo").textContent="No encontrada"
-    document.getElementById("detalle-ubicacion-text").textContent=""
-  }
-})
-</script>
-
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="views/assets/js/detalle.js"></script>
 </body>
 </html>
