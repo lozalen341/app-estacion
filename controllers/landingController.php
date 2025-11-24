@@ -10,6 +10,7 @@
 
 	/* LÓGICA DE NEGOCIO */
 	$section = "Pagina principal";
+	$css = "landing";
 
 	$usuarios = new Usuarios();
 
@@ -21,6 +22,8 @@
 
 	$tpl->assign([
 		"APP_SECTION" => $section,
+		"NAME_CSS" => $css,
+
 		//"CANT_USERS" => $cant_users
 	]);
 
@@ -28,4 +31,4 @@
 
 	
 
- ?>
+?>

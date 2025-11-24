@@ -1,0 +1,222 @@
+/* Detalle */
+.detalle-wrapper {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  min-height: 100vh;
+}
+
+.btn-back {
+  background: none;
+  border: none;
+  color: #475569;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 0;
+  transition: color 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-back:hover {
+  color: #1e293b;
+}
+
+.detalle-content {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  padding: 2.5rem;
+}
+
+.detalle-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid #f1f5f9;
+}
+
+.header-left {
+  flex: 1;
+}
+
+.detalle-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.detalle-ubicacion {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #64748b;
+  font-size: 1rem;
+  background: #f8fafc;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  border: 1px solid #e2e8f0;
+}
+
+.detalle-ubicacion img {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  opacity: 0.8;
+}
+
+/* Controles meteorológicos */
+#controls {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  #controls {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.ala {
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 1rem;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.ala::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.ala:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+  border-color: currentColor;
+}
+
+.ala:hover::before {
+  opacity: 1;
+}
+
+.ala-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #94a3b8;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ala-value {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  flex-wrap: wrap;
+  line-height: 1;
+  margin-bottom: 0.75rem;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ala-int {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  word-break: break-word;
+  text-align: center;
+}
+
+.ala-dec {
+  font-size: clamp(1rem, 2vw, 1.75rem);
+  font-weight: 600;
+  opacity: 0.7;
+  word-break: break-word;
+  text-align: center;
+}
+
+.ala-unit {
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.6;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Colores específicos por tipo */
+#temp {
+  color: #d97706;
+}
+
+#temp::before {
+  background: linear-gradient(90deg, #f59e0b, #d97706);
+}
+
+#temp:hover {
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+}
+
+#hume {
+  color: #2563eb;
+}
+
+#hume::before {
+  background: linear-gradient(90deg, #3b82f6, #2563eb);
+}
+
+#hume:hover {
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+}
+
+#vien {
+  color: #7c3aed;
+}
+
+#vien::before {
+  background: linear-gradient(90deg, #8b5cf6, #7c3aed);
+}
+
+#vien:hover {
+  background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+}
+
+#ince {
+  color: #dc2626;
+}
+
+#ince::before {
+  background: linear-gradient(90deg, #ef4444, #dc2626);
+}
+
+#ince:hover {
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+}

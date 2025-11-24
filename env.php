@@ -12,8 +12,8 @@
 	/*==== CONSTANTES para la conexión a la DB */
 
 	define("DB_HOST", "localhost");
-	define("DB_USER", "adm_webgenerator");
-	define("DB_PASS", "webgenerator2024");
-	define("DB_NAME", "webgenerator");
+    define("DB_USER", "root");
+    define("DB_PASS", "");
+    define("DB_NAME", "app_station_db");
 
- ?>
+?>

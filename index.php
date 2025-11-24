@@ -1,7 +1,4 @@
 <?php 
-
-
-
 	/****
 	 * 
 	 * 
@@ -16,6 +13,7 @@
 
 	include 'models/DBAbstract.php';
 	include 'models/Usuarios.php';
+	include 'models/Mailer.php';
 
 	$section = "landing";
 
@@ -28,7 +26,4 @@
 	}
 
 	include 'controllers/'.$section.'Controller.php';
-
-
-
- ?>
+?>

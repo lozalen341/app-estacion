@@ -1,15 +1,16 @@
 <?php 
-
-	$section = "error";
-
+	
+	$seccion = "Error";
+	$css = "error";
 
 	/* IMPRIMO LA VISTA */
-	$tpl = new Palta([
-		"error",
-		"APP_SECTION" => $section,
+	$tpl = new Palta("error");
 
+	$tpl->assign([
+		"APP_SECTION" => $seccion,
+		"NAME_CSS" => $css,
 	]);
 
 	$tpl->printToScreen();
 
- ?>
+?>

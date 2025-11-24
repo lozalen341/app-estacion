@@ -4,6 +4,10 @@
     <div class="panel-wrapper">
       <div class="panel-header">
         <h2 class="panel-title">{{ APP_NAME }}</h2>
+        <a href="?slug=logout" class="btn-logout">
+          <img src="views/assets/img/logout.svg">
+          Cerrar sesión
+        </a>
       </div>
       <div id="list-estacion" class="stations-grid">
         <!-- Las estaciones se cargan dinamicamente aca -->

@@ -1,28 +1,33 @@
 <?php 
 
-
-	/**
-	 * 
-	 */
-	class DBAbstract
-	{
+	class DBAbstract {
 
 		private $db;
-		
-		//function __construct()
-		//{
-		//	$this->db = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-		//}
 
+		public function __construct() {
+			$this->db = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+			
+			if ($this->db->connect_error) {
+				die("Error de conexión a la base de datos: " . $this->db->connect_error);
+			}
+		}
 
-		/* solo funciona para hacer select a futuro lo haremos para todas las dml: SELECT, INSERT, UPDATE, DELETE */
-		public function consultar($sql){
+		// Para consultas SELECT
+		public function consultar($sql) {
+			$result = $this->db->query($sql);
+			if(!$result) {
+				die("Error en la consulta: " . $this->db->error);
+			}
+			return $result->fetch_all(MYSQLI_ASSOC);
+		}
 
-			$response = $this->db->query($sql);
-
-			return $response->fetch_all(MYSQLI_ASSOC);
+		// Para INSERT, UPDATE o DELETE
+		public function ejecutar($sql) {
+			if(!$this->db->query($sql)) {
+				die("Error al ejecutar la consulta: " . $this->db->error);
+			}
+			return true;
 		}
 	}
 
-
- ?>
+?>
